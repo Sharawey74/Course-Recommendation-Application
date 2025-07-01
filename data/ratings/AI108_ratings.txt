@@ -1,0 +1,10 @@
+COURSE_ID: AI108
+COURSE_NAME: AI in Healthcare Applications
+AVERAGE_RATING: 4.0
+TOTAL_RATINGS: 1
+
+USER_RATINGS:
+  USER_ID: 111
+  RATING: 4
+  REVIEW: wowoseeers
+

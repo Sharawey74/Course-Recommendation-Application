@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Learning Report for 3amohom</title>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --warning-color: #ea4335;
+            --light-bg: #f8f9fa;
+            --dark-bg: #202124;
+            --border-color: #dadce0;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #5c6bc0);
+            color: white;
+            padding: 30px;
+            border-radius: 8px 8px 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .header:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%);
+            background-size: 20px 20px;
+            z-index: 1;
+            opacity: 0.3;
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        .date {
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12);
+            border-left: 4px solid var(--primary-color);
+        }
+        .section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .user-info {
+            border-left: 4px solid #5c6bc0;
+        }
+        .info-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .user-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        .user-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .user-details table td {
+            padding: 8px 0;
+        }
+        .user-details table td:first-child {
+            font-weight: 600;
+            width: 40%;
+        }
+        .courses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .course-item {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .course-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .course-header h3 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: #333;
+            flex: 1;
+        }
+        .difficulty {
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .beginner {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+        .intermediate {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+        .advanced {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+        }
+        .progress-bar {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-right: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 6px;
+            transition: width 0.5s ease;
+        }
+        .progress-fill.complete {
+            background-color: var(--secondary-color);
+        }
+        .progress-fill.good {
+            background-color: var(--accent-color);
+        }
+        .progress-fill.needs-work {
+            background-color: var(--warning-color);
+        }
+        .progress-text {
+            font-weight: bold;
+            font-size: 0.9rem;
+            width: 40px;
+            text-align: right;
+        }
+        .progress-text.complete {
+            color: var(--secondary-color);
+        }
+        .progress-text.good {
+            color: var(--accent-color);
+        }
+        .progress-text.needs-work {
+            color: var(--warning-color);
+        }
+        .learning-style {
+            background: linear-gradient(to right, #f3e5f5, #e8f5e9);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .primary-style {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .style-recommendations {
+            background: rgba(255,255,255,0.7);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .style-recommendations h4 {
+            margin-top: 0;
+            color: #555;
+        }
+        .benefits-list li {
+            margin-bottom: 8px;
+        }
+        .analysis-card {
+            background: var(--light-bg);
+            border-radius: 8px;
+            padding: 20px;
+        }
+        .metrics-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .metric-card {
+            flex: 1;
+            min-width: 180px;
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        .metric-card.completed {
+            border-top: 3px solid var(--secondary-color);
+        }
+        .metric-card.in-progress {
+            border-top: 3px solid var(--accent-color);
+        }
+        .metric-card.hours {
+            border-top: 3px solid var(--primary-color);
+        }
+        .metric-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        .streak-container {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            background: linear-gradient(to right, #fff8e1, #ffebee);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .streak-icon {
+            font-size: 2.5rem;
+            margin-right: 15px;
+        }
+        .streak-count {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #ff5722;
+        }
+        .streak-message {
+            color: #666;
+        }
+        .last-active {
+            text-align: right;
+            color: #666;
+            font-style: italic;
+            margin-top: 15px;
+        }
+        .recommendations-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
+        }
+        .recommendation {
+            background: #f1f8e9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .recommendation:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+        }
+        .rec-header h3 {
+            margin: 0;
+            color: #333;
+            flex: 1;
+        }
+        .rec-category {
+            display: inline-block;
+            background: rgba(0,0,0,0.05);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+        .rec-description {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        .rec-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .duration {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .enroll-btn {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+        .enroll-btn:hover {
+            background: #3367d6;
+        }
+        .no-data {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            color: #666;
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 0 0 8px 8px;
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .copyright {
+            font-size: 0.8rem;
+            margin-top: 15px;
+            color: #999;
+        }
+        @media (max-width: 768px) {
+            .metrics-cards, .courses-list, .recommendations-list {
+                grid-template-columns: 1fr;
+            }
+            .metric-card {
+                margin-bottom: 15px;
+            }
+            .header {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+<div class='header'>
+  <div class='header-content'>
+    <h1>User Learning Report</h1>
+    <p class='date'>Generated on: May 18, 2025</p>
+  </div>
+</div>
+
+<div class='section user-info'>
+  <h2><i class='icon user-icon'></i> User Information</h2>
+  <div class='info-card'>
+    <div class='user-details'>
+      <table>
+        <tr><td><strong>User ID:</strong></td><td>111</td></tr>
+        <tr><td><strong>Name:</strong></td><td>3amohom</td></tr>
+        <tr><td><strong>Email:</strong></td><td>ohoo@gmail.com</td></tr>
+        <tr><td><strong>Skill Level:</strong></td><td>INTERMEDIATE</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='icon progress-icon'></i> Course Progress</h2>
+  <div class='courses-list'>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Marketing Strategies</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Social Media Marketing</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>MARKETING</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI in Healthcare Applications</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI Ethics and Governance</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Computer Vision Basics</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Retail Management Strategies</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Cloud Data Warehousing</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>DATA_SCIENCE</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI for Robotics</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Graphic Design Masterclass</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>DESIGN</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Java Fundamentals</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>PROGRAMMING</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Financial Analysis</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+        <span class='hours'>10.0 hours</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='icon learning-icon'></i> Learning Style Analysis</h2>
+  <div class='analysis-card'>
+    <p><div class='learning-style'><p class='primary-style'>Your dominant learning area is <strong>DESIGN</strong> (0% of your course time)</p><div class='style-recommendations'><h4>Based on your learning style, you might benefit from:</h4><ul class='benefits-list'><li>Portfolio-building projects</li><li>Visual design challenges</li><li>User experience research methods</li></ul></div></div></p>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='icon activity-icon'></i> Activity Summary</h2>
+  <div class='summary-container'>
+<div class='metrics-cards'><div class='metric-card completed'><div class='metric-icon'>📚</div><div class='metric-value'>8</div><div class='metric-label'>Courses completed</div></div><div class='metric-card in-progress'><div class='metric-icon'>⏳</div><div class='metric-value'>10</div><div class='metric-label'>Courses in progress</div></div><div class='metric-card hours'><div class='metric-icon'>⏱️</div><div class='metric-value'>0.0</div><div class='metric-label'>Total learning hours</div></div></div>  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='icon recommend-icon'></i> Recommended Next Steps</h2>
+  <div class='recommendations-list'>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Business Management Fundamentals</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='rec-category'>BUSINESS</div>
+      <p class='rec-description'>Essential skills for business managers</p>
+      <div class='rec-meta'>
+        <span class='duration'>10.0 hours</span>
+        <a href='#' class='enroll-btn'>Enroll Now</a>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Full-Stack Development</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='rec-category'>PROGRAMMING</div>
+      <p class='rec-description'>Become a full-stack developer with hands-on projects</p>
+      <div class='rec-meta'>
+        <span class='duration'>10.0 hours</span>
+        <a href='#' class='enroll-btn'>Enroll Now</a>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Entrepreneurship Essentials</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='rec-category'>BUSINESS</div>
+      <p class='rec-description'>Understand the core principles of entrepreneurship</p>
+      <div class='rec-meta'>
+        <span class='duration'>10.0 hours</span>
+        <a href='#' class='enroll-btn'>Enroll Now</a>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Motion Graphics with After Effects</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='rec-category'>DESIGN</div>
+      <p class='rec-description'>Create engaging motion graphics and animations</p>
+      <div class='rec-meta'>
+        <span class='duration'>10.0 hours</span>
+        <a href='#' class='enroll-btn'>Enroll Now</a>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>SEO Fundamentals</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='rec-category'>MARKETING</div>
+      <p class='rec-description'>Optimize websites for search engines effectively</p>
+      <div class='rec-meta'>
+        <span class='duration'>10.0 hours</span>
+        <a href='#' class='enroll-btn'>Enroll Now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='footer'>
+  <p>This report was automatically generated by the Learning Platform.</p>
+  <p>For questions or feedback, contact <a href='mailto:support@learningplatform.com'>support@learningplatform.com</a></p>
+  <p class='copyright'>&copy; 2025 Learning Platform Inc. All Rights Reserved.</p>
+</div>
+</div>
+</body>
+</html>

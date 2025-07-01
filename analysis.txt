@@ -1,0 +1,101 @@
+# Course Rating System Analysis
+
+## Current System Structure
+
+The course rating system is designed to allow users to rate courses and save these ratings in two places:
+
+1. **Course Object**: In memory, each `Course` object maintains a map of user ratings (`Map<String, List<Integer>> userRatings`). This correctly stores multiple ratings per user as a list.
+
+2. **Rating Files**: Each course has a rating file (e.g., `data/ratings/DES103_ratings.txt`) that stores all ratings for that course.
+
+3. **User Files**: Each user file (e.g., `user_111.txt`) stores information about the user's ratings in the `COURSE_PROGRESS` section.
+
+## The Problem
+
+The issue appears to be in the `saveRatingToUserFile` method in `CourseManagerService.java`. When a user rates a course multiple times, the method is overwriting the previous rating in the user's file instead of appending the new rating.
+
+Looking at the code:
+
+```java
+public void saveRatingToUserFile(User user, String courseId, String courseName, int rating, String review) {
+    // ...
+    if (inRatingSection && line.trim().startsWith("COURSE_ID: " + courseId)) {
+        // Found existing rating for this course - update it
+        int courseSection = i;
+
+        // Skip existing lines for this course
+        while (i < lines.size() && !lines.get(i).trim().startsWith("COURSE_ID:") && !lines.get(i).trim().isEmpty()) {
+            i++;
+            if (i >= lines.size()) break;
+        }
+        i--; // Go back one line to handle the next iteration properly
+
+        // Replace with updated information
+        updatedLines.remove(courseSection); // Remove COURSE_ID line
+        updatedLines.add("  COURSE_ID: " + courseId);
+        updatedLines.add("  COURSE_NAME: " + courseName);
+        updatedLines.add("  RATING: " + rating);
+        if (review != null && !review.isEmpty()) {
+            updatedLines.add("  REVIEW: " + review);
+        }
+
+        ratingUpdated = true;
+    }
+    // ...
+}
+```
+
+This code is finding the existing rating for a course and replacing it with the new rating, rather than adding the new rating alongside the existing one.
+
+While the `Course` class and the course rating files correctly handle multiple ratings per user, the user file structure doesn't support this properly.
+
+## The Solution
+
+We need to modify the `saveRatingToUserFile` method to handle multiple ratings per course. Here's how:
+
+1. **Modify User File Structure**: Change the RATINGS section in the user file to support multiple ratings per course:
+
+```
+RATINGS:
+  COURSE_ID: DES103
+  COURSE_NAME: Motion Graphics with After Effects
+  RATINGS:
+    - RATING: 4
+      REVIEW: First review
+      DATE: 2025-05-20 14:30
+    - RATING: 5
+      REVIEW: Second review
+      DATE: 2025-05-22 16:45
+```
+
+2. **Update the `saveRatingToUserFile` Method**: Instead of replacing the existing rating, append the new rating to the list of ratings for that course.
+
+3. **Update the User Class**: Add a method to retrieve all ratings for a specific course.
+
+4. **Update the GUI**: Ensure the GUI displays all ratings from a user for each course, not just the most recent one.
+
+## Implementation Steps
+
+1. **Modify `saveRatingToUserFile` in `CourseManagerService.java`**:
+   - When a course rating is found, don't replace it
+   - Instead, add the new rating under a nested structure
+   - Include timestamps with ratings for better tracking
+
+2. **Update `User.java`**:
+   - Enhance the `addCourseRating` method to store rating timestamps
+   - Add methods to retrieve all ratings for a specific course
+
+3. **Update the GUI**:
+   - Modify the rating display components to show all ratings from a user
+   - Add timestamps to the rating display
+
+By implementing these changes, the system will properly store and display multiple ratings per user for each course, allowing users to track how their opinions change over time.
+
+## Additional Considerations
+
+- The current implementation correctly stores multiple ratings in the Course object and course rating files
+- The GUI has been updated to display multiple ratings, but the user file storage needs to be fixed
+- Adding timestamps to ratings will provide better context for when each rating was given
+- Consider adding a feature to allow users to explain why they changed their rating
+
+This approach preserves all rating history while maintaining the existing functionality of the system. 

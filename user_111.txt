@@ -1,0 +1,117 @@
+USER_ID: 111
+NAME: 3amohom
+EMAIL: ohoo@gmail.com
+PASSWORD: cGFzc1dPUkQhITExMTE=
+SKILL_LEVEL: INTERMEDIATE
+INTERESTS:
+  DESIGN
+  PROGRAMMING
+  MARKETING
+  BUSINESS
+ENROLLED_COURSES:
+  BUS102 - Marketing Strategies
+  MKT102 - Social Media Marketing
+  AI108 - AI in Healthcare Applications
+  AI107 - AI Ethics and Governance
+  AI106 - Computer Vision Basics
+  BUS109 - Retail Management Strategies
+  DATA109 - Cloud Data Warehousing
+  AI104 - AI for Robotics
+  DES102 - Graphic Design Masterclass
+  PROG101 - Java Fundamentals
+  BUS104 - Financial Analysis
+COMPLETED_COURSES:
+  PROG101 - Java Fundamentals
+  AI101 - Artificial Intelligence Foundations
+  PROG102 - Advanced Python
+  PROG103 - Web Development with JavaScript
+  DES101 - UI/UX Design Principles
+  DATA101 - Introduction to Data Science
+  MKT101 - Digital Marketing
+  PROG104 - C++ for Beginners
+COURSE_PROGRESS:
+  COURSE_ID: PROG103
+  COURSE_NAME: Web Development with JavaScript
+  PROGRESS: 60%
+  YOUR_RATING: Not rated
+  COURSE_ID: MKT101
+  COURSE_NAME: Digital Marketing
+  PROGRESS: 100%
+  YOUR_RATING: Not rated
+  COURSE_ID: PROG104
+  COURSE_NAME: C++ for Beginners
+  PROGRESS: 100%
+  YOUR_RATING: Not rated
+  COURSE_ID: PROG102
+  COURSE_NAME: Advanced Python
+  PROGRESS: 100%
+  YOUR_RATING: Not rated
+  COURSE_ID: DES101
+  COURSE_NAME: UI/UX Design Principles
+  PROGRESS: 80%
+  YOUR_RATING: Not rated
+  COURSE_ID: AI101
+  COURSE_NAME: Artificial Intelligence Foundations
+  PROGRESS: 100%
+  YOUR_RATING: Not rated
+LAST_ACCESS_TIME:
+  COURSE_ID: PROG103
+  COURSE_NAME: Web Development with JavaScript
+  TIME: 2025-04-25 21:19
+  COURSE_ID: DATA109
+  COURSE_NAME: Cloud Data Warehousing
+  TIME: 2025-04-30 02:38
+  COURSE_ID: PROG104
+  COURSE_NAME: C++ for Beginners
+  TIME: 2025-05-03 20:03
+  COURSE_ID: BUS104
+  COURSE_NAME: Financial Analysis
+  TIME: 2025-05-08 14:41
+  COURSE_ID: PROG101
+  COURSE_NAME: Java Fundamentals
+  TIME: 2025-05-03 19:59
+  COURSE_ID: PROG102
+  COURSE_NAME: Advanced Python
+  TIME: 2025-04-12 21:40
+  COURSE_ID: AI108
+  COURSE_NAME: AI in Healthcare Applications
+  TIME: 2025-04-30 02:38
+  COURSE_ID: AI107
+  COURSE_NAME: AI Ethics and Governance
+  TIME: 2025-04-30 02:38
+  COURSE_ID: BUS102
+  COURSE_NAME: Marketing Strategies
+  TIME: 2025-04-28 15:35
+  COURSE_ID: BUS109
+  COURSE_NAME: Retail Management Strategies
+  TIME: 2025-04-30 02:38
+  COURSE_ID: MKT101
+  COURSE_NAME: Digital Marketing
+  TIME: 2025-04-30 14:04
+  COURSE_ID: MKT102
+  COURSE_NAME: Social Media Marketing
+  TIME: 2025-04-30 02:38
+  COURSE_ID: DATA101
+  COURSE_NAME: Introduction to Data Science
+  TIME: 2025-04-26 12:29
+  COURSE_ID: AI104
+  COURSE_NAME: AI for Robotics
+  TIME: 2025-04-30 02:38
+  COURSE_ID: AI106
+  COURSE_NAME: Computer Vision Basics
+  TIME: 2025-04-30 02:38
+  COURSE_ID: DES101
+  COURSE_NAME: UI/UX Design Principles
+  TIME: 2025-04-26 13:38
+  COURSE_ID: DES102
+  COURSE_NAME: Graphic Design Masterclass
+  TIME: 2025-04-30 02:38
+  COURSE_ID: AI101
+  COURSE_NAME: Artificial Intelligence Foundations
+  TIME: 2025-04-12 21:40
+RATINGS:
+  COURSE_ID: PROG101
+  COURSE_NAME: Java Fundamentals
+    RATINGS:
+      - RATING: 1
+        DATE: 2025-05-22 14:38

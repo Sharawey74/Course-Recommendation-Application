@@ -1,0 +1,51 @@
+courseID,title,category,difficulty,provider,description
+PROG101,Java Fundamentals,PROGRAMMING,BEGINNER,CodeAcademy,Learn the basics of Java programming language
+PROG102,Advanced Python,PROGRAMMING,INTERMEDIATE,Udemy,Master Python for professional applications
+PROG103,Web Development with JavaScript,PROGRAMMING,BEGINNER,Coursera,Build dynamic websites with JavaScript
+DATA101,Introduction to Data Science,DATA_SCIENCE,BEGINNER,DataCamp,Fundamentals of data analysis and visualization
+DATA102,Machine Learning Basics,DATA_SCIENCE,INTERMEDIATE,Coursera,Introduction to machine learning algorithms
+AI101,Artificial Intelligence Foundations,ARTIFICIAL_INTELLIGENCE,INTERMEDIATE,edX,Understand core AI concepts and applications
+AI102,Deep Learning Specialization,ARTIFICIAL_INTELLIGENCE,ADVANCED,Coursera,Comprehensive deep learning techniques and applications
+BUS101,Business Management Fundamentals,BUSINESS,BEGINNER,LinkedIn Learning,Essential skills for business managers
+BUS102,Marketing Strategies,BUSINESS,INTERMEDIATE,Udemy,Develop effective marketing campaigns
+DES101,UI/UX Design Principles,DESIGN,BEGINNER,Skillshare,User interface and experience design fundamentals
+MKT101,Digital Marketing,MARKETING,BEGINNER,HubSpot Academy,Learn digital marketing techniques and tools
+PROG104,C++ for Beginners,PROGRAMMING,BEGINNER,Udacity,Learn the fundamentals of C++ programming
+PROG105,Full-Stack Development,PROGRAMMING,ADVANCED,Pluralsight,Become a full-stack developer with hands-on projects
+DATA103,Big Data Analytics,DATA_SCIENCE,ADVANCED,Coursera,Analyze and process large datasets efficiently
+DATA104,Data Visualization with Python,DATA_SCIENCE,INTERMEDIATE,Kaggle,Create stunning data visualizations using Python
+AI103,Natural Language Processing,ARTIFICIAL_INTELLIGENCE,ADVANCED,Stanford Online,Master NLP techniques for AI applications
+AI104,AI for Robotics,ARTIFICIAL_INTELLIGENCE,INTERMEDIATE,MIT OpenCourseWare,AI implementation in autonomous robotics
+BUS103,Entrepreneurship Essentials,BUSINESS,BEGINNER,Harvard Business School,Understand the core principles of entrepreneurship
+BUS104,Financial Analysis,BUSINESS,ADVANCED,edX,Gain financial analysis skills for business growth
+DES102,Graphic Design Masterclass,DESIGN,BEGINNER,Domestika,Learn graphic design principles and tools
+DES103,Motion Graphics with After Effects,DESIGN,INTERMEDIATE,Skillshare,Create engaging motion graphics and animations
+MKT102,Social Media Marketing,MARKETING,BEGINNER,Hootsuite Academy,Boost brand engagement with social media marketing
+MKT103,SEO Fundamentals,MARKETING,INTERMEDIATE,Moz Academy,Optimize websites for search engines effectively
+PROG106,Mobile App Development with Kotlin,PROGRAMMING,INTERMEDIATE,Udacity,Develop Android apps using Kotlin and modern tools
+PROG107,Ruby on Rails for Startups,PROGRAMMING,INTERMEDIATE,CodeAcademy,Build scalable web applications with Ruby on Rails
+PROG108,iOS Development with Swift,PROGRAMMING,ADVANCED,Pluralsight,Create iOS apps using Swift and Xcode
+PROG109,Game Development with Unity,PROGRAMMING,INTERMEDIATE,Coursera,Design games using Unity engine and C# scripting
+PROG110,DevOps Essentials,PROGRAMMING,BEGINNER,LinkedIn Learning,Introduction to DevOps practices and tools
+DATA105,Data Engineering with Apache Spark,DATA_SCIENCE,ADVANCED,Coursera,Learn distributed data processing with Apache Spark
+DATA106,SQL for Data Analysis,DATA_SCIENCE,BEGINNER,DataCamp,Master SQL queries for database management
+DATA107,Time Series Forecasting,DATA_SCIENCE,INTERMEDIATE,Kaggle,Predict future trends using time series models
+DATA108,Deep Learning for Computer Vision,DATA_SCIENCE,ADVANCED,edX,Implement CV models with TensorFlow and Keras
+AI105,Reinforcement Learning Fundamentals,ARTIFICIAL_INTELLIGENCE,ADVANCED,Stanford Online,Explore reinforcement learning algorithms and applications
+AI106,Computer Vision Basics,ARTIFICIAL_INTELLIGENCE,INTERMEDIATE,Udemy,Build image recognition systems using OpenCV
+AI107,AI Ethics and Governance,ARTIFICIAL_INTELLIGENCE,INTERMEDIATE,MIT OpenCourseWare,Address ethical challenges in AI deployment
+BUS105,Supply Chain Management,BUSINESS,INTERMEDIATE,LinkedIn Learning,Optimize supply chain operations for efficiency
+BUS106,International Business Strategies,BUSINESS,ADVANCED,Harvard Business School,Manage global business expansion effectively
+BUS107,Project Management Professional (PMP),BUSINESS,INTERMEDIATE,Udemy,Prepare for PMP certification with case studies
+BUS108,Digital Transformation in Business,BUSINESS,ADVANCED,Pluralsight,Lead organizational change through digital innovation
+DES104,3D Modeling with Blender,DESIGN,INTERMEDIATE,Domestika,Create 3D models and animations using Blender
+DES105,Advanced UX Research,DESIGN,ADVANCED,Skillshare,Conduct user research for product optimization
+DES106,Illustrator for Graphic Designers,DESIGN,BEGINNER,Domestika,Master vector graphics with Adobe Illustrator
+MKT104,Content Marketing Strategy,MARKETING,INTERMEDIATE,HubSpot Academy,Develop content strategies to engage audiences
+MKT105,Influencer Marketing 101,MARKETING,BEGINNER,Hootsuite Academy,Leverage influencers for brand growth
+MKT106,Email Marketing Mastery,MARKETING,INTERMEDIATE,Moz Academy,Craft high-conversion email campaigns
+PROG111,Functional Programming in Scala,PROGRAMMING,ADVANCED,Coursera,Explore functional programming paradigms with Scala
+PROG112,Cybersecurity Basics,PROGRAMMING,BEGINNER,CodeAcademy,Protect systems from digital threats
+DATA109,Cloud Data Warehousing,DATA_SCIENCE,INTERMEDIATE,Udacity,Design cloud-based data warehouses
+AI108,AI in Healthcare Applications,ARTIFICIAL_INTELLIGENCE,ADVANCED,edX,Implement AI solutions for medical diagnostics
+BUS109,Retail Management Strategies,BUSINESS,INTERMEDIATE,LinkedIn Learning,Optimize retail operations and customer experience

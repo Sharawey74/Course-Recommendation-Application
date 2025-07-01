@@ -1,0 +1,35 @@
+USER_ID: 56
+NAME: hy
+EMAIL: ceccec@gmail.com
+PASSWORD: YXl3YVdvcmQ4OTdTQCE=
+SKILL_LEVEL: BEGINNER
+INTERESTS:
+  PROGRAMMING
+ENROLLED_COURSES:
+  DATA109 - Cloud Data Warehousing
+  PROG103 - Web Development with JavaScript
+COMPLETED_COURSES:
+  PROG101 - Java Fundamentals
+  PROG102 - Advanced Python
+COURSE_PROGRESS:
+  COURSE_ID: PROG101
+  COURSE_NAME: Java Fundamentals
+  PROGRESS: 50%
+  YOUR_RATING: Not rated
+  COURSE_ID: PROG102
+  COURSE_NAME: Advanced Python
+  PROGRESS: 100%
+  YOUR_RATING: Not rated
+LAST_ACCESS_TIME:
+  COURSE_ID: DATA109
+  COURSE_NAME: Cloud Data Warehousing
+  TIME: 2025-04-30 13:59
+  COURSE_ID: PROG103
+  COURSE_NAME: Web Development with JavaScript
+  TIME: 2025-04-30 13:59
+  COURSE_ID: PROG101
+  COURSE_NAME: Java Fundamentals
+  TIME: 2025-04-30 13:59
+  COURSE_ID: PROG102
+  COURSE_NAME: Advanced Python
+  TIME: 2025-04-30 14:03

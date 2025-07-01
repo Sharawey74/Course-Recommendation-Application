@@ -1,0 +1,1349 @@
+/* ======================== */
+/* === GLOBAL DESIGN SYSTEM === */
+/* ======================== */
+.root {
+    /* Extended Color Palette */
+    -fx-primary-color: #4361ee;
+    -fx-primary-light: #4895ef;
+    -fx-primary-dark: #3a0ca3;
+
+    -fx-secondary-color: #f72585;
+    -fx-secondary-light: #ff80ab;
+    -fx-secondary-dark: #c51162;
+
+    -fx-accent-color: #4cc9f0;
+    -fx-accent-light: #72efdd;
+    -fx-accent-dark: #3a86ff;
+
+    -fx-success-color: #06d6a0;
+    -fx-warning-color: #ffd166;
+    -fx-danger-color: #ef233c;
+    -fx-info-color: #118ab2;
+
+    /* Background Variations */
+    -fx-background-base: #f8f9fa;
+    -fx-background-light: #e9ecef;
+    -fx-background-dark: #ced4da;
+
+    /* Text Color Variations */
+    -fx-text-primary: #2b2d42;
+    -fx-text-secondary: #4a4e69;
+    -fx-text-muted: #8d99ae;
+
+    /* Dark Theme Base Colors */
+    -fx-dark-background: #212529;
+    -fx-dark-surface: #343a40;
+    -fx-dark-text: #f8f9fa;
+
+    /* Typography */
+    -fx-font-family: 'Inter', 'Segoe UI', 'Roboto', 'Helvetica', sans-serif;
+    -fx-font-size: 14px;
+
+    /* Animation Properties */
+    -fx-transition-duration: 250ms;
+    /* Removed cubic-bezier as it's not supported in JavaFX CSS */
+}
+
+/* ======================== */
+/* === GLOBAL KEYFRAMES === */
+/* ======================== */
+/* JavaFX doesn't support @keyframes, replaced with JavaFX animation classes */
+
+/* ======================== */
+/* === ADVANCED TYPOGRAPHY === */
+/* ======================== */
+.display-1 {
+    -fx-font-size: 48px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-color;
+}
+
+.display-2 {
+    -fx-font-size: 36px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.headline {
+    -fx-font-size: 28px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.subheadline {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-secondary;
+}
+
+.caption {
+    -fx-font-size: 12px;
+    -fx-text-fill: -fx-text-muted;
+    -fx-font-style: italic;
+}
+
+/* Text Alignment */
+.text-center {
+    -fx-text-alignment: center;
+}
+
+.text-right {
+    -fx-text-alignment: right;
+}
+
+.text-left {
+    -fx-text-alignment: left;
+}
+
+.text-justify {
+    -fx-text-alignment: justify;
+}
+
+/* Font Weights */
+.font-light {
+    -fx-font-weight: 300;
+}
+
+.font-regular {
+    -fx-font-weight: 400;
+}
+
+.font-medium {
+    -fx-font-weight: 500;
+}
+
+.font-bold {
+    -fx-font-weight: 700;
+}
+
+.font-black {
+    -fx-font-weight: 900;
+}
+
+/* ======================== */
+/* === ADVANCED BUTTONS === */
+/* ======================== */
+.button {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: -fx-primary-dark;
+    -fx-effect: dropshadow(gaussian, rgba(67,97,238,0.3), 10, 0.3, 0, 1);
+}
+
+.button:pressed {
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+.button:disabled {
+    -fx-opacity: 0.6;
+    -fx-background-color: -fx-background-dark;
+}
+
+/* Button Sizes */
+.btn-sm {
+    -fx-padding: 8px 16px;
+    -fx-font-size: 12px;
+}
+
+.btn-lg {
+    -fx-padding: 16px 32px;
+    -fx-font-size: 16px;
+}
+
+.btn-xl {
+    -fx-padding: 20px 40px;
+    -fx-font-size: 18px;
+}
+
+/* Variant Buttons */
+.success-button {
+    -fx-background-color: -fx-success-color;
+}
+
+.success-button:hover {
+    -fx-background-color: derive(-fx-success-color, -20%);
+}
+
+.danger-button {
+    -fx-background-color: -fx-danger-color;
+}
+
+.danger-button:hover {
+    -fx-background-color: derive(-fx-danger-color, -20%);
+}
+
+.warning-button {
+    -fx-background-color: -fx-warning-color;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.warning-button:hover {
+    -fx-background-color: derive(-fx-warning-color, -20%);
+}
+
+.info-button {
+    -fx-background-color: -fx-info-color;
+}
+
+.info-button:hover {
+    -fx-background-color: derive(-fx-info-color, -20%);
+}
+
+.outline-button {
+    -fx-background-color: transparent;
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 2px;
+    -fx-text-fill: -fx-primary-color;
+}
+
+.outline-button:hover {
+    -fx-background-color: rgba(67, 97, 238, 0.1);
+}
+
+.link-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-primary-color;
+    -fx-underline: true;
+    -fx-padding: 0;
+    -fx-border-width: 0;
+}
+
+.link-button:hover {
+    -fx-text-fill: -fx-primary-dark;
+}
+
+/* Button Groups */
+.button-group {
+    -fx-spacing: 0;
+}
+
+.button-group .button {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 1px;
+    -fx-border-color: derive(-fx-primary-color, 50%);
+}
+
+.button-group .button:first-child {
+    -fx-background-radius: 5px 0 0 5px;
+    -fx-border-radius: 5px 0 0 5px;
+}
+
+.button-group .button:last-child {
+    -fx-background-radius: 0 5px 5px 0;
+    -fx-border-radius: 0 5px 5px 0;
+}
+
+/* ======================== */
+/* === FORM CONTROLS === */
+/* ======================== */
+.text-field, .password-field, .text-area {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 15px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused,
+.password-field:focused,
+.text-area:focused {
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(67,97,238,0.1), 5, 0.3, 0, 1);
+}
+
+.text-area .content {
+    -fx-background-radius: 8px;
+}
+
+/* Form Labels */
+.form-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-secondary;
+    -fx-padding: 0 0 5px 0;
+}
+
+/* Combo Box */
+.combo-box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 5px;
+}
+
+.combo-box:focused {
+    -fx-border-color: -fx-primary-color;
+}
+
+.combo-box .list-cell {
+    -fx-padding: 5px 10px;
+}
+
+.combo-box .list-view {
+    -fx-background-radius: 8px;
+    -fx-border-radius: 8px;
+    -fx-border-color: -fx-background-dark;
+}
+
+/* Check Box */
+.check-box {
+    -fx-text-fill: -fx-text-primary;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 4px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: -fx-primary-color;
+}
+
+.check-box:selected .box {
+    -fx-background-color: white;
+    -fx-border-color: -fx-primary-color;
+}
+
+/* Radio Button */
+.radio-button {
+    -fx-text-fill: -fx-text-primary;
+}
+
+.radio-button .radio {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 100%;
+}
+
+.radio-button:selected .dot {
+    -fx-background-color: -fx-primary-color;
+}
+
+.radio-button:selected .radio {
+    -fx-border-color: -fx-primary-color;
+}
+
+/* Slider */
+.slider .track {
+    -fx-background-color: -fx-background-light;
+    -fx-background-radius: 5px;
+}
+
+.slider .thumb {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 100%;
+}
+
+.slider .axis {
+    -fx-tick-label-fill: -fx-text-muted;
+}
+
+/* Date Picker */
+.date-picker {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
+
+.date-picker .arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-background-radius: 0 5px 5px 0;
+}
+
+.date-picker .arrow-button:hover {
+    -fx-background-color: -fx-primary-dark;
+}
+
+/* ======================== */
+/* === ADVANCED CARDS === */
+/* ======================== */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 3);
+}
+
+.card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.2, 0, 5);
+}
+
+.card-header {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-padding: 15px;
+    -fx-background-radius: 15px 15px 0 0;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+}
+
+.card-body {
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+.card-footer {
+    -fx-background-color: -fx-background-light;
+    -fx-padding: 10px 15px;
+    -fx-background-radius: 0 0 15px 15px;
+}
+
+/* Card Variations */
+.card-primary {
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 0 0 0 5px;
+}
+
+.card-success {
+    -fx-border-color: -fx-success-color;
+    -fx-border-width: 0 0 0 5px;
+}
+
+.card-danger {
+    -fx-border-color: -fx-danger-color;
+    -fx-border-width: 0 0 0 5px;
+}
+
+.card-warning {
+    -fx-border-color: -fx-warning-color;
+    -fx-border-width: 0 0 0 5px;
+}
+
+/* ======================== */
+/* === PROGRESS COMPONENTS === */
+/* ======================== */
+.progress-bar {
+    -fx-accent: -fx-primary-color;
+    -fx-background-color: -fx-background-light;
+    -fx-background-radius: 10px;
+}
+
+.progress-bar .track {
+    -fx-background-radius: 10px;
+}
+
+.progress-bar .bar {
+    -fx-background-radius: 10px;
+}
+
+.progress-indicator {
+    -fx-progress-color: -fx-primary-color;
+}
+
+/* Progress Sizes */
+.progress-sm {
+    -fx-pref-height: 5px;
+}
+
+.progress-md {
+    -fx-pref-height: 10px;
+}
+
+.progress-lg {
+    -fx-pref-height: 15px;
+}
+
+/* Progress Variants */
+.progress-success .bar {
+    -fx-accent: -fx-success-color;
+}
+
+.progress-warning .bar {
+    -fx-accent: -fx-warning-color;
+}
+
+.progress-danger .bar {
+    -fx-accent: -fx-danger-color;
+}
+
+/* Spinner */
+.spinner {
+    -fx-body-color: -fx-primary-color;
+}
+
+/* ======================== */
+/* === ADVANCED NAVIGATION === */
+/* ======================== */
+.side-menu {
+    -fx-background-color: -fx-primary-dark;
+    -fx-padding: 20px 0;
+    -fx-spacing: 5px;
+}
+
+.side-menu-item {
+    -fx-padding: 15px 25px;
+    -fx-text-fill: white;
+    -fx-cursor: hand;
+}
+
+.side-menu-item:hover {
+    -fx-background-color: rgba(255,255,255,0.1);
+}
+
+.side-menu-item:selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-border-width: 0 0 0 3px;
+    -fx-border-color: white;
+}
+
+.side-menu-icon {
+    -fx-fill: white;
+    -fx-stroke: white;
+}
+
+/* Navbar */
+.navbar {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.1, 0, 1);
+    -fx-padding: 15px 25px;
+}
+
+.navbar-brand {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-primary-color;
+}
+
+.navbar-item {
+    -fx-padding: 10px 15px;
+    -fx-text-fill: -fx-text-secondary;
+    -fx-cursor: hand;
+}
+
+.navbar-item:hover {
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    -fx-spacing: 5px;
+}
+
+.breadcrumb-item {
+    -fx-text-fill: -fx-text-muted;
+}
+
+.breadcrumb-item:hover {
+    -fx-text-fill: -fx-primary-color;
+}
+
+.breadcrumb-separator {
+    -fx-text-fill: -fx-text-muted;
+    -fx-padding: 0 5px;
+}
+
+/* ======================== */
+/* === TABS === */
+/* ======================== */
+.tab-pane {
+    -fx-tab-min-width: 100px;
+    -fx-tab-max-width: 200px;
+}
+
+.tab {
+    -fx-background-color: -fx-background-light;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+}
+
+.tab:selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.tab:hover {
+    -fx-background-color: derive(-fx-background-light, -10%);
+}
+
+.tab:selected:hover {
+    -fx-background-color: derive(-fx-primary-color, -10%);
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: transparent;
+}
+
+/* Tab Variants */
+.tab-pane-pill .tab {
+    -fx-background-radius: 20px;
+    -fx-background-insets: 5px;
+}
+
+.tab-pane-pill .tab:selected {
+    -fx-background-radius: 20px;
+}
+
+.tab-pane-underline .tab:selected {
+    -fx-border-width: 0 0 3px 0;
+    -fx-border-color: -fx-primary-color;
+    -fx-background-color: transparent;
+    -fx-text-fill: -fx-primary-color;
+}
+
+/* ======================== */
+/* === TOOLTIPS === */
+/* ======================== */
+.tooltip {
+    -fx-background-color: -fx-text-primary;
+    -fx-text-fill: white;
+    -fx-font-size: 12px;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.2, 0, 1);
+}
+
+/* Tooltip Variants */
+.tooltip-success {
+    -fx-background-color: -fx-success-color;
+}
+
+.tooltip-warning {
+    -fx-background-color: -fx-warning-color;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.tooltip-danger {
+    -fx-background-color: -fx-danger-color;
+}
+
+.tooltip-info {
+    -fx-background-color: -fx-info-color;
+}
+
+/* ======================== */
+/* === DIALOGS === */
+/* ======================== */
+.dialog-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 20, 0.2, 0, 5);
+}
+
+.dialog-pane .header {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 15px;
+    -fx-background-radius: 15px 15px 0 0;
+}
+
+.dialog-pane .content {
+    -fx-padding: 20px;
+    -fx-font-size: 14px;
+}
+
+.dialog-pane .button-bar {
+    -fx-padding: 15px;
+    -fx-spacing: 10px;
+}
+
+/* Alert Types */
+.alert-success .header {
+    -fx-background-color: -fx-success-color;
+}
+
+.alert-warning .header {
+    -fx-background-color: -fx-warning-color;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.alert-danger .header {
+    -fx-background-color: -fx-danger-color;
+}
+
+.alert-info .header {
+    -fx-background-color: -fx-info-color;
+}
+
+/* ======================== */
+/* === SCROLLBARS === */
+/* ======================== */
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: -fx-background-dark;
+    -fx-background-radius: 10px;
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: derive(-fx-background-dark, -20%);
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* Custom ScrollPane */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .corner {
+    -fx-background-color: transparent;
+}
+
+/* ======================== */
+/* === DARK MODE === */
+/* ======================== */
+.dark-theme {
+    -fx-background-color: -fx-dark-background;
+    -fx-text-fill: -fx-dark-text;
+}
+
+.dark-theme .card {
+    -fx-background-color: -fx-dark-surface;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.3, 0, 3);
+}
+
+.dark-theme .button {
+    -fx-background-color: -fx-primary-color;
+}
+
+.dark-theme .text-field,
+.dark-theme .password-field,
+.dark-theme .text-area {
+    -fx-background-color: derive(-fx-dark-surface, -10%);
+    -fx-text-fill: -fx-dark-text;
+    -fx-border-color: derive(-fx-dark-surface, 10%);
+}
+
+.dark-theme .combo-box {
+    -fx-background-color: derive(-fx-dark-surface, -10%);
+    -fx-text-fill: -fx-dark-text;
+}
+
+.dark-theme .tab {
+    -fx-background-color: derive(-fx-dark-surface, -10%);
+    -fx-text-fill: -fx-dark-text;
+}
+
+.dark-theme .tab:selected {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.dark-theme .tooltip {
+    -fx-background-color: -fx-dark-text;
+    -fx-text-fill: -fx-dark-background;
+}
+
+/* ======================== */
+/* === RESPONSIVE UTILITIES === */
+/* ======================== */
+.flex-row {
+    -fx-spacing: 15px;
+    -fx-alignment: center-left;
+}
+
+.flex-row-center {
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+}
+
+.flex-row-right {
+    -fx-spacing: 15px;
+    -fx-alignment: center-right;
+}
+
+.flex-column {
+    -fx-spacing: 15px;
+    -fx-alignment: top-left;
+}
+
+.flex-column-center {
+    -fx-spacing: 15px;
+    -fx-alignment: center-left;
+}
+
+.grid-layout {
+    -fx-hgap: 20px;
+    -fx-vgap: 20px;
+}
+
+/* Flex Wrap */
+.flex-wrap {
+    -fx-wrap-text: true;
+}
+
+/* Flex Grow */
+.flex-grow {
+    -fx-hgrow: always;
+    -fx-vgrow: always;
+}
+
+/* ======================== */
+/* === ANIMATION UTILITIES === */
+/* ======================== */
+/* JavaFX doesn't support CSS animations directly, these are for reference */
+.animate-fade {
+    -fx-opacity: 0;
+}
+
+.animate-slide-right {
+    -fx-translate-x: 50;
+}
+
+.animate-pulse {
+    -fx-scale-x: 1;
+    -fx-scale-y: 1;
+}
+
+/* ======================== */
+/* === SPACING UTILITIES === */
+/* ======================== */
+/* Padding */
+.p-0 { -fx-padding: 0; }
+.p-1 { -fx-padding: 5px; }
+.p-2 { -fx-padding: 10px; }
+.p-3 { -fx-padding: 15px; }
+.p-4 { -fx-padding: 20px; }
+.p-5 { -fx-padding: 25px; }
+
+.pt-1 { -fx-padding: 5px 0 0 0; }
+.pr-1 { -fx-padding: 0 5px 0 0; }
+.pb-1 { -fx-padding: 0 0 5px 0; }
+.pl-1 { -fx-padding: 0 0 0 5px; }
+
+.px-1 { -fx-padding: 0 5px; }
+.py-1 { -fx-padding: 5px 0; }
+
+/* Margin */
+.m-0 { -fx-margin: 0; }
+.m-1 { -fx-margin: 5px; }
+.m-2 { -fx-margin: 10px; }
+.m-3 { -fx-margin: 15px; }
+.m-4 { -fx-margin: 20px; }
+.m-5 { -fx-margin: 25px; }
+
+.mt-1 { -fx-margin: 5px 0 0 0; }
+.mr-1 { -fx-margin: 0 5px 0 0; }
+.mb-1 { -fx-margin: 0 0 5px 0; }
+.ml-1 { -fx-margin: 0 0 0 5px; }
+
+.mx-1 { -fx-margin: 0 5px; }
+.my-1 { -fx-margin: 5px 0; }
+
+/* Gap */
+.gap-1 { -fx-spacing: 5px; }
+.gap-2 { -fx-spacing: 10px; }
+.gap-3 { -fx-spacing: 15px; }
+.gap-4 { -fx-spacing: 20px; }
+.gap-5 { -fx-spacing: 25px; }
+
+/* ======================== */
+/* === ACCESSIBILITY === */
+/* ======================== */
+.high-contrast {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-border-color: white;
+}
+
+.high-contrast .button {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-border-color: white;
+}
+
+.screen-reader-text {
+    -fx-font-size: 1px;
+    -fx-opacity: 0.01;
+}
+
+/* Focus indicators for keyboard navigation */
+.focus-visible {
+    -fx-border-color: -fx-primary-color;
+    -fx-border-width: 2px;
+    -fx-border-style: dashed;
+}
+
+/* ======================== */
+/* === SPECIAL EFFECTS === */
+/* ======================== */
+.glass-morphism {
+    -fx-background-color: rgba(255, 255, 255, 0.1);
+    -fx-background-radius: 15px;
+    -fx-border-color: rgba(255, 255, 255, 0.2);
+    -fx-border-width: 1px;
+    /* Removed backdrop-filter as it's not supported in JavaFX */
+}
+
+.neon-effect {
+    -fx-effect: dropshadow(gaussian, -fx-primary-color, 20, 0.5, 0, 0);
+}
+
+.shadow-sm {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.1, 0, 1);
+}
+
+.shadow-md {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.2, 0, 3);
+}
+
+.shadow-lg {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 15, 0.3, 0, 5);
+}
+
+.shadow-xl {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 20, 0.4, 0, 8);
+}
+
+/* ======================== */
+/* === BORDERS === */
+/* ======================== */
+.border {
+    -fx-border-color: -fx-background-dark;
+    -fx-border-width: 1px;
+}
+
+.border-0 {
+    -fx-border-width: 0;
+}
+
+.border-2 {
+    -fx-border-width: 2px;
+}
+
+.border-4 {
+    -fx-border-width: 4px;
+}
+
+.border-primary {
+    -fx-border-color: -fx-primary-color;
+}
+
+.border-success {
+    -fx-border-color: -fx-success-color;
+}
+
+.border-danger {
+    -fx-border-color: -fx-danger-color;
+}
+
+.border-warning {
+    -fx-border-color: -fx-warning-color;
+}
+
+.border-info {
+    -fx-border-color: -fx-info-color;
+}
+
+.rounded-sm {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+.rounded-md {
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+}
+
+.rounded-lg {
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+}
+
+.rounded-full {
+    -fx-background-radius: 999px;
+    -fx-border-radius: 999px;
+}
+
+/* ======================== */
+/* === TABLE VIEW === */
+/* ======================== */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.table-view .column-header {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+}
+
+.table-view .column-header-background {
+    -fx-background-radius: 8px 8px 0 0;
+}
+
+.table-view .table-cell {
+    -fx-padding: 10px;
+    -fx-border-color: transparent;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: -fx-background-light;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+}
+
+.table-view .table-row-cell:hover {
+    -fx-background-color: derive(-fx-primary-light, 80%);
+}
+
+/* ======================== */
+/* === TREE VIEW === */
+/* ======================== */
+.tree-view {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px;
+}
+
+.tree-cell {
+    -fx-padding: 5px;
+}
+
+.tree-cell:selected {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+}
+
+.tree-cell:hover {
+    -fx-background-color: derive(-fx-primary-light, 80%);
+}
+
+/* ======================== */
+/* === LIST VIEW === */
+/* ======================== */
+.list-view {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+
+.list-cell {
+    -fx-padding: 10px;
+}
+
+.list-cell:odd {
+    -fx-background-color: -fx-background-light;
+}
+
+.list-cell:selected {
+    -fx-background-color: -fx-primary-light;
+    -fx-text-fill: white;
+}
+
+.list-cell:hover {
+    -fx-background-color: derive(-fx-primary-light, 80%);
+}
+
+/* ======================== */
+/* === CHART STYLES === */
+/* ======================== */
+.chart {
+    -fx-background-color: white;
+    -fx-border-color: -fx-background-dark;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 15px;
+}
+
+.chart-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.chart-legend {
+    -fx-background-color: transparent;
+}
+
+.chart-series-line {
+    -fx-stroke-width: 2px;
+}
+
+.default-color0.chart-series-line { -fx-stroke: -fx-primary-color; }
+.default-color1.chart-series-line { -fx-stroke: -fx-secondary-color; }
+.default-color2.chart-series-line { -fx-stroke: -fx-accent-color; }
+
+.default-color0.chart-line-symbol { -fx-background-color: -fx-primary-color; }
+.default-color1.chart-line-symbol { -fx-background-color: -fx-secondary-color; }
+.default-color2.chart-line-symbol { -fx-background-color: -fx-accent-color; }
+
+/* ======================== */
+/* === ICON STYLES === */
+/* ======================== */
+.icon {
+    -fx-fill: -fx-text-primary;
+}
+
+.icon-primary {
+    -fx-fill: -fx-primary-color;
+}
+
+.icon-secondary {
+    -fx-fill: -fx-secondary-color;
+}
+
+.icon-success {
+    -fx-fill: -fx-success-color;
+}
+
+.icon-danger {
+    -fx-fill: -fx-danger-color;
+}
+
+.icon-warning {
+    -fx-fill: -fx-warning-color;
+}
+
+.icon-info {
+    -fx-fill: -fx-info-color;
+}
+
+.icon-sm {
+    -fx-icon-size: 16px;
+}
+
+.icon-md {
+    -fx-icon-size: 24px;
+}
+
+.icon-lg {
+    -fx-icon-size: 32px;
+}
+
+.icon-xl {
+    -fx-icon-size: 48px;
+}
+
+/* ======================== */
+/* === DIVIDER STYLES === */
+/* ======================== */
+.divider {
+    -fx-background-color: -fx-background-dark;
+    -fx-pref-height: 1px;
+    -fx-pref-width: 1px;
+}
+
+.divider-vertical {
+    -fx-background-color: -fx-background-dark;
+    -fx-pref-width: 1px;
+    -fx-pref-height: 100%;
+}
+
+.divider-thick {
+    -fx-background-color: -fx-background-dark;
+    -fx-pref-height: 2px;
+    -fx-pref-width: 2px;
+}
+
+.divider-primary {
+    -fx-background-color: -fx-primary-color;
+}
+
+.divider-success {
+    -fx-background-color: -fx-success-color;
+}
+
+.divider-danger {
+    -fx-background-color: -fx-danger-color;
+}
+
+/* ======================== */
+/* === BADGE STYLES === */
+/* ======================== */
+.badge {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-padding: 3px 8px;
+    -fx-background-radius: 10px;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.badge-sm {
+    -fx-padding: 1px 5px;
+    -fx-font-size: 10px;
+}
+
+.badge-lg {
+    -fx-padding: 5px 10px;
+    -fx-font-size: 14px;
+}
+
+.badge-primary {
+    -fx-background-color: -fx-primary-color;
+}
+
+.badge-secondary {
+    -fx-background-color: -fx-secondary-color;
+}
+
+.badge-success {
+    -fx-background-color: -fx-success-color;
+}
+
+.badge-danger {
+    -fx-background-color: -fx-danger-color;
+}
+
+.badge-warning {
+    -fx-background-color: -fx-warning-color;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.badge-info {
+    -fx-background-color: -fx-info-color;
+}
+
+/* ======================== */
+/* === AVATAR STYLES === */
+/* ======================== */
+.avatar {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+    -fx-background-radius: 100%;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+}
+
+.avatar-sm {
+    -fx-pref-width: 32px;
+    -fx-pref-height: 32px;
+    -fx-font-size: 12px;
+}
+
+.avatar-md {
+    -fx-pref-width: 48px;
+    -fx-pref-height: 48px;
+    -fx-font-size: 16px;
+}
+
+.avatar-lg {
+    -fx-pref-width: 64px;
+    -fx-pref-height: 64px;
+    -fx-font-size: 20px;
+}
+
+.avatar-xl {
+    -fx-pref-width: 96px;
+    -fx-pref-height: 96px;
+    -fx-font-size: 32px;
+}
+
+/* ======================== */
+/* === TOAST NOTIFICATIONS === */
+/* ======================== */
+.toast {
+    -fx-background-color: -fx-text-primary;
+    -fx-text-fill: white;
+    -fx-padding: 15px 20px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.2, 0, 3);
+}
+
+.toast-success {
+    -fx-background-color: -fx-success-color;
+}
+
+.toast-warning {
+    -fx-background-color: -fx-warning-color;
+    -fx-text-fill: -fx-text-primary;
+}
+
+.toast-danger {
+    -fx-background-color: -fx-danger-color;
+}
+
+.toast-info {
+    -fx-background-color: -fx-info-color;
+}
+
+/* ======================== */
+/* === LOADING SPINNER === */
+/* ======================== */
+.spinner {
+    -fx-accent: -fx-primary-color;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-background-color: -fx-primary-color;
+    -fx-text-fill: white;
+}
+
+.spinner .increment-arrow,
+.spinner .decrement-arrow {
+    -fx-background-color: white;
+}
+
+/* ======================== */
+/* === CUSTOM CONTROLS === */
+/* ======================== */
+.toggle-switch {
+    -fx-background-color: -fx-background-dark;
+    -fx-background-radius: 15px;
+}
+
+.toggle-switch:selected {
+    -fx-background-color: -fx-primary-color;
+}
+
+.toggle-switch-thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 100%;
+}
+
+.rating .star {
+    -fx-fill: -fx-background-dark;
+}
+
+.rating .star.selected {
+    -fx-fill: -fx-warning-color;
+}
+
+/* ======================== */
+/* === PRINT STYLES === */
+/* ======================== */
+@media print {
+    .no-print {
+        -fx-visibility: hidden;
+    }
+
+    .print-only {
+        -fx-visibility: visible;
+    }
+}

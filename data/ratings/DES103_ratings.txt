@@ -1,0 +1,10 @@
+COURSE_ID: DES103
+COURSE_NAME: Motion Graphics with After Effects
+AVERAGE_RATING: 4.0
+TOTAL_RATINGS: 1
+
+USER_RATINGS:
+  USER_ID: 999
+  RATING: 4
+  REVIEW: na2so mal7
+

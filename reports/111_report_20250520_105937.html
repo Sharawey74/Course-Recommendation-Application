@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Learning Report for 3amohom</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'>
+    <style>
+        :root {
+            --primary-color: #4285f4;
+            --secondary-color: #34a853;
+            --accent-color: #fbbc05;
+            --warning-color: #ea4335;
+            --light-bg: #f8f9fa;
+            --dark-bg: #202124;
+            --border-color: #dadce0;
+            --card-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            --transition-speed: 0.3s;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 2px 25px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), #5c6bc0);
+            color: white;
+            padding: 40px 30px;
+            border-radius: 12px 12px 0 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .header:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%);
+            background-size: 20px 20px;
+            z-index: 1;
+            opacity: 0.3;
+            animation: backgroundMove 20s linear infinite;
+        }
+        @keyframes backgroundMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 50px 50px; }
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+        .date {
+            font-style: italic;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: var(--card-shadow);
+            border-left: 4px solid var(--primary-color);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .section h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-weight: 500;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .section h2 i {
+            margin-right: 10px;
+            opacity: 0.8;
+        }
+        .user-info {
+            border-left: 4px solid #5c6bc0;
+        }
+        .info-card {
+            display: flex;
+            flex-wrap: wrap;
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .user-details {
+            flex: 1;
+            min-width: 250px;
+        }
+        .user-details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .user-details table td {
+            padding: 12px 8px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .user-details table tr:last-child td {
+            border-bottom: none;
+        }
+        .user-details table td:first-child {
+            font-weight: 600;
+            width: 40%;
+            color: #555;
+        }
+        .courses-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .course-item {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            border-top: 3px solid var(--primary-color);
+        }
+        .course-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .course-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .course-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: #333;
+            flex: 1;
+        }
+        .difficulty {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .beginner {
+            background-color: #c8e6c9;
+            color: #2e7d32;
+        }
+        .intermediate {
+            background-color: #fff9c4;
+            color: #f57f17;
+        }
+        .advanced {
+            background-color: #ffcdd2;
+            color: #c62828;
+        }
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .category {
+            display: inline-block;
+            background: rgba(0,0,0,0.05);
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+        }
+        .progress-container {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+        .progress-bar {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-right: 10px;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 6px;
+            transition: width 1s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .progress-fill:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent);
+            background-size: 15px 15px;
+            animation: progressAnimation 1s linear infinite;
+        }
+        @keyframes progressAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 15px 0; }
+        }
+        .progress-fill.complete {
+            background-color: var(--secondary-color);
+        }
+        .progress-fill.good {
+            background-color: var(--accent-color);
+        }
+        .progress-fill.needs-work {
+            background-color: var(--warning-color);
+        }
+        .progress-text {
+            font-weight: bold;
+            font-size: 0.9rem;
+            width: 40px;
+            text-align: right;
+        }
+        .progress-text.complete {
+            color: var(--secondary-color);
+        }
+        .progress-text.good {
+            color: var(--accent-color);
+        }
+        .progress-text.needs-work {
+            color: var(--warning-color);
+        }
+        .learning-style {
+            background: linear-gradient(to right, #f3e5f5, #e8f5e9);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .primary-style {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .style-recommendations {
+            background: rgba(255,255,255,0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        }
+        .style-recommendations h4 {
+            margin-top: 0;
+            color: #555;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+        .benefits-list {
+            padding-left: 20px;
+            margin-bottom: 0;
+        }
+        .benefits-list li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 5px;
+        }
+        .benefits-list li:last-child {
+            margin-bottom: 0;
+        }
+        .analysis-card {
+            background: var(--light-bg);
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .metrics-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .metric-card {
+            flex: 1;
+            min-width: 180px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+        .metric-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        .metric-card.completed {
+            border-top: 3px solid var(--secondary-color);
+        }
+        .metric-card.in-progress {
+            border-top: 3px solid var(--accent-color);
+        }
+        .metric-card.hours {
+            border-top: 3px solid var(--primary-color);
+        }
+        .metric-icon {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+        .metric-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #333;
+            line-height: 1.2;
+        }
+        .metric-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 8px;
+        }
+        .streak-container {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            background: linear-gradient(to right, #fff8e1, #ffebee);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 87, 34, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 87, 34, 0); }
+        }
+        .streak-icon {
+            font-size: 2.8rem;
+            margin-right: 20px;
+        }
+        .streak-count {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #ff5722;
+        }
+        .streak-message {
+            color: #666;
+            margin-top: 5px;
+        }
+        .recommendations-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        .recommendation {
+            background: #f1f8e9;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+            position: relative;
+            overflow: hidden;
+        }
+        .recommendation:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        .recommendation::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 60px;
+            height: 60px;
+            background: var(--secondary-color);
+            transform: rotate(45deg);
+            opacity: 0.1;
+        }
+        .rec-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        .rec-header h3 {
+            margin: 0;
+            color: #333;
+            flex: 1;
+            font-size: 1.3rem;
+        }
+        .rec-category {
+            display: inline-block;
+            background: rgba(0,0,0,0.05);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            color: #555;
+            font-weight: 500;
+        }
+        .rec-description {
+            color: #555;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .rec-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .enroll-btn {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+        .enroll-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        .enroll-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .enroll-btn.enrolled {
+            background: var(--secondary-color);
+            cursor: default;
+        }
+        .no-data {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #666;
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: 0 0 12px 12px;
+            position: relative;
+        }
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer a:hover {
+            color: #3367d6;
+            text-decoration: underline;
+        }
+        .copyright {
+            font-size: 0.85rem;
+            margin-top: 20px;
+            color: #999;
+        }
+        .generated-info {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 10px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalOpen 0.3s ease-out;
+        }
+        @keyframes modalOpen {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .modal-title {
+            margin: 0;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #999;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+        .enrollment-success {
+            text-align: center;
+            padding: 20px 0;
+        }
+        .success-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+        .success-message {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .modal-footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .confirm-btn {
+            background: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .confirm-btn:hover {
+            background: #2d7d46;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .export-options {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        .export-btn {
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .export-btn:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 10px rgba(0,0,0,0.15);
+        }
+        .export-btn i {
+            font-size: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+            .metrics-cards, .courses-list, .recommendations-list {
+                grid-template-columns: 1fr;
+            }
+            .metric-card {
+                margin-bottom: 15px;
+            }
+            .header {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            .section {
+                padding: 20px 15px;
+                margin: 20px 0;
+            }
+            .recommendation {
+                padding: 20px;
+            }
+            .rec-header h3 {
+                font-size: 1.1rem;
+            }
+            .streak-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .streak-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+            .export-options {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .export-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class='container'>
+<div class='header'>
+  <div class='header-content'>
+    <h1>User Learning Report</h1>
+    <p class='date'>Generated on: May 20, 2025</p>
+  </div>
+</div>
+
+<div class='section user-info'>
+  <h2><i class='fas fa-user'></i> User Information</h2>
+  <div class='info-card'>
+    <div class='user-details'>
+      <table>
+        <tr><td><strong>User ID:</strong></td><td>111</td></tr>
+        <tr><td><strong>Name:</strong></td><td>3amohom</td></tr>
+        <tr><td><strong>Email:</strong></td><td>ohoo@gmail.com</td></tr>
+        <tr><td><strong>Skill Level:</strong></td><td>INTERMEDIATE</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='fas fa-chart-line'></i> Course Progress</h2>
+  <div class='courses-list'>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Marketing Strategies</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Social Media Marketing</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>MARKETING</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI in Healthcare Applications</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI Ethics and Governance</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Computer Vision Basics</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Retail Management Strategies</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Cloud Data Warehousing</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>DATA_SCIENCE</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>AI for Robotics</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>ARTIFICIAL_INTELLIGENCE</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Graphic Design Masterclass</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>DESIGN</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Java Fundamentals</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>PROGRAMMING</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+    <div class='course-item'>
+      <div class='course-header'>
+        <h3>Financial Analysis</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='course-meta'>
+        <span class='category'>BUSINESS</span>
+      </div>
+      <div class='progress-container'>
+        <div class='progress-bar'>
+          <div class='progress-fill needs-work' style='width:0%;'></div>
+        </div>
+        <div class='progress-text needs-work'>0%</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='fas fa-brain'></i> Learning Style Analysis</h2>
+  <div class='analysis-card'>
+    <p><div class='learning-style'><p class='primary-style'>Your dominant learning area is <strong>PROGRAMMING</strong> (0% of your course time)</p><div class='style-recommendations'><h4>Based on your learning style, you might benefit from:</h4><ul class='benefits-list'><li>Project-based learning approaches</li><li>Hands-on coding exercises</li><li>Collaborative development projects</li></ul></div></div></p>
+  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='fas fa-tasks'></i> Activity Summary</h2>
+  <div class='summary-container'>
+<div class='metrics-cards'><div class='metric-card completed'><div class='metric-icon'><i class='fas fa-check-circle'></i></div><div class='metric-value'>8</div><div class='metric-label'>Courses completed</div></div><div class='metric-card in-progress'><div class='metric-icon'><i class='fas fa-spinner fa-spin'></i></div><div class='metric-value'>10</div><div class='metric-label'>Courses in progress</div></div><div class='metric-card hours'><div class='metric-icon'><i class='fas fa-clock'></i></div><div class='metric-value'>0.0</div><div class='metric-label'>Total learning hours</div></div></div>  </div>
+</div>
+
+<div class='section'>
+  <h2><i class='fas fa-lightbulb'></i> Recommended Next Steps</h2>
+  <div class='recommendations-list'>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Business Management Fundamentals</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='rec-category'>BUSINESS</div>
+      <p class='rec-description'>Essential skills for business managers</p>
+      <div class='rec-meta'>
+        <button class='enroll-btn' data-course-id='BUS101'>Enroll Now</button>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Full-Stack Development</h3>
+        <span class='difficulty advanced'>ADVANCED</span>
+      </div>
+      <div class='rec-category'>PROGRAMMING</div>
+      <p class='rec-description'>Become a full-stack developer with hands-on projects</p>
+      <div class='rec-meta'>
+        <button class='enroll-btn' data-course-id='PROG105'>Enroll Now</button>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Entrepreneurship Essentials</h3>
+        <span class='difficulty beginner'>BEGINNER</span>
+      </div>
+      <div class='rec-category'>BUSINESS</div>
+      <p class='rec-description'>Understand the core principles of entrepreneurship</p>
+      <div class='rec-meta'>
+        <button class='enroll-btn' data-course-id='BUS103'>Enroll Now</button>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>Motion Graphics with After Effects</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='rec-category'>DESIGN</div>
+      <p class='rec-description'>Create engaging motion graphics and animations</p>
+      <div class='rec-meta'>
+        <button class='enroll-btn' data-course-id='DES103'>Enroll Now</button>
+      </div>
+    </div>
+    <div class='recommendation'>
+      <div class='rec-header'>
+        <h3>SEO Fundamentals</h3>
+        <span class='difficulty intermediate'>INTERMEDIATE</span>
+      </div>
+      <div class='rec-category'>MARKETING</div>
+      <p class='rec-description'>Optimize websites for search engines effectively</p>
+      <div class='rec-meta'>
+        <button class='enroll-btn' data-course-id='MKT103'>Enroll Now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class='footer'>
+  <p>This report was automatically generated by the Learning Platform.</p>
+  <p>For questions or feedback, contact <a href='mailto:support@learningplatform.com'>support@learningplatform.com</a></p>
+  <p class='copyright'>&copy; 2025 Learning Platform Inc. All Rights Reserved.</p>
+  <p class='generated-info'>Generated on: 2025-05-20 10:59:37 by Sharawey74</p>
+</div>
+
+<div class='export-options'>
+  <a href='#' class='export-btn' id='exportPdf'><i class='fas fa-file-pdf'></i> Export as PDF</a>
+</div>
+</div>
+<!-- Enrollment Modal -->
+<div id='enrollmentModal' class='modal'>
+    <div class='modal-content'>
+        <div class='modal-header'>
+            <h3 class='modal-title'>Course Enrollment</h3>
+            <button class='close-modal'>&times;</button>
+        </div>
+        <div class='enrollment-success'>
+            <div class='success-icon'><i class='fas fa-check-circle'></i></div>
+            <p class='success-message'>You have successfully enrolled in <span id='enrolledCourseName'></span>!</p>
+            <p>You can start learning right away. The course has been added to your dashboard.</p>
+        </div>
+        <div class='modal-footer'>
+            <button class='confirm-btn'>Go to Dashboard</button>
+        </div>
+    </div>
+</div>
+<!-- Font Awesome Icons -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js'></script>
+<!-- Enrollment Functionality -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Get all enroll buttons
+        const enrollButtons = document.querySelectorAll('.enroll-btn');
+        const modal = document.getElementById('enrollmentModal');
+        const closeModal = document.querySelector('.close-modal');
+        const confirmBtn = document.querySelector('.confirm-btn');
+        const enrolledCourseName = document.getElementById('enrolledCourseName');
+        const exportPdfBtn = document.getElementById('exportPdf');
+        
+        // Add click event to all enroll buttons
+        enrollButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const courseId = this.getAttribute('data-course-id');
+                const courseTitle = this.closest('.recommendation').querySelector('h3').textContent;
+                
+                // Simulate API call to enroll in course
+                console.log(`Enrolling in course: ${courseId}`);
+                
+                // Show success message with course name
+                enrolledCourseName.textContent = courseTitle;
+                
+                // Update button state
+                this.textContent = 'Enrolled';
+                this.classList.add('enrolled');
+                this.disabled = true;
+                
+                // Show modal
+                modal.style.display = 'flex';
+                
+                // Add to user's enrolled courses (simulation)
+                const userId = '111';
+                const userName = '3amohom';
+                console.log(`User ${userName} (${userId}) enrolled in course ${courseId}`);
+            });
+        });
+        
+        // Export PDF button click handler
+        if (exportPdfBtn) {
+            exportPdfBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Generating PDF report... The file will be available in the reports directory.');
+                // In a real implementation, this would trigger the server-side PDF generation
+                // window.location.href = '/export/pdf/111';
+            });
+        }
+        
+        // Close modal when clicking close button
+        closeModal.addEventListener('click', function() {
+            modal.style.display = 'none';
+        });
+        
+        // Close modal when clicking confirm button
+        confirmBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            // Redirect to dashboard (simulation)
+            console.log('Redirecting to dashboard...');
+            // Uncomment to redirect in a real application:
+            // window.location.href = '/dashboard';
+        });
+        
+        // Close modal when clicking outside of it
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // Animate progress bars on load
+        const progressBars = document.querySelectorAll('.progress-fill');
+        progressBars.forEach(bar => {
+            const width = bar.style.width;
+            bar.style.width = '0%';
+            setTimeout(() => {
+                bar.style.width = width;
+            }, 300);
+        });
+    });
+</script>
+</body>
+</html>
